@@ -1,0 +1,25 @@
+Chapter 1
+---------
+
+Install go.
+
+Q1:
+	1. go doc hash/fnv
+
+
+Chapter 2 : Basics
+---------
+
+  - goroutine: functions running as lightweight threads
+  - channels: method of communicaition between goroutines
+  - Go has explicit casting and strict rules about type conversion
+  - Postfix types: types go after varible names
+  - Erlang shares features with Go, though Go is nearly-functional, compiled, and feels like Unix.
+  - Every Go file starts with a package. main is used for stand-alone executables.
+  - Comments are // for single line and /* */ for multi-line
+  - All Go files in the same package will be compiled together
+  - 
+
+Q2:
+
+Q3:
