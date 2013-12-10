@@ -18,7 +18,102 @@ Chapter 2 : Basics
   - Every Go file starts with a package. main is used for stand-alone executables.
   - Comments are // for single line and /* */ for multi-line
   - All Go files in the same package will be compiled together
-  - 
+
+  [ Variables, types and keywords ]
+  - Variables of a particular type are assigned "natural" null values
+  	- a int = 0
+  	- b string = ""
+  	- etc
+  - Declaring and Assigning can occur in the same step
+    - a := 15 (int)
+    - b := false (bool)
+    - !! This form may only be used INSIDE functions !!
+    - Go deduces the type from the value
+    - They can be grouped as follows:
+      - a, b := 20, 16
+    - The underscore (_) is used to discard values
+      - _, b := 34, 35
+      - 34 is discarded, b int = 35
+    - Declared but unused variables in the code will lead to a compile error.
+    - int32 and int are distinct types. Illegal mixing will lead to a compile error.
+    - Constants are constants. Int, string, or bool
+    - iota is a increment-on-assignment constant. 
+    	
+    	const (
+        a = iota : a int = 0
+        b = iota : b int = 1  // you can omit "= iota"															// and it will work.
+      )
+
+    - Strings are a basic type. <[finally!]>
+    - They are a sequence of UTF-8 characters enclosed in double quotes ("")
+    - Assign them thusly: s := "Hello World!"
+    - Strings in go are immutable.
+    - To perform (this) is illegal
+        
+        var s sring = "hello"
+        s[0] = 'c'
+    
+    - Instead
+
+    	s := "hello"		// assign "hello" to s
+    	c := []rune(s)  // convert s into array of runes (dope!)
+    	c[0] = 'c'			// change char to c
+    	s2 := string(c) // assign "cello" to s2
+
+    - Multi-line strings
+
+    	s := "Starting part"  will compile into   s:= "SP";
+    			+ "Ending Part "                         + "EP";
+
+    	ILLEGAL!
+    - Instead
+
+    	s := "Starting part" +
+    			 "Ending part"
+
+    - or, use raw string literals using back quotes (`)
+      - raw string literals are composed of the uniterpreted characters between the quotes
+
+      s := `Starting part  // This now contains a newline
+            Ending Part`
+
+    - Runes
+      - Rune is an alias for int32
+      - Use rune to access characters
+
+    - Complex numbers are defined thusly
+
+    	var c complex64(or 128) = 9 + 4i
+
+    - Errors have their own type, error. i.e. var e error [default = nil]
+
+  [ Control Structures]
+
+  - There is no do or while loop in Go, only for.
+  - Doesn't require parenthesis, but body must always be in brackets
+
+  	if x > 0 {
+  		return y
+  	} else {
+  		return x
+  	}
+
+  - You can also set up local variables in if statements, similar to a for loop
+
+  	if err := Chmod(0664); err != nil { // nil = null
+  		fmt.Printf(err)			// Scope of err is only if body
+  		return err
+  	}
+
+  - No need to add the else case
+
+
+
+
+
+
+
+
 
 Q2:
 
