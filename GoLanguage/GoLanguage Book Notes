@@ -8,7 +8,7 @@ Q1:
 
 
 Chapter 2 : Basics
----------
+-------------------
 
   - goroutine: functions running as lightweight threads
   - channels: method of communicaition between goroutines
@@ -192,7 +192,58 @@ Chapter 2 : Basics
   	  		f()
   	  }
 
+  [ Built-in Functions]
+   
+  - run:
 
-Q2:
+    go doc builtin 
 
-Q3:
+   to read the online documentation about builtin types and functions
+
+ [ Arrays, Slices, and Maps]
+
+ - Multiple values in a list: 
+   - array, slice
+   - map: dictionary, or hash
+
+ [ Arrays ]
+	 - Definition:
+	   - [n]<type>
+
+	     var arr [10]int
+	     arr[0] = 42
+	     arr[1] = 13
+	     fmt.Printf("The first element is %d\n, arr[0]")
+
+	   - Arrays declared this way are of *fixed* size
+	   - Assigning one array to another copies all of the elements
+	     - When passing an array to a function, a copy is passed, not a pointer to it
+
+	 - Declaring an array:
+
+	    a := [3]int{1, 2, 3} 
+	    				
+	    a := [...]int{1, 2, 3} 	// This counts the # of elements
+
+	    a := [2][2]int{ {1,2}, {3,4} }  // Multiple dimensions
+	 
+ - [ Slices ]
+
+   - Slices point to underlying arrays
+   - Assignment of slices points one slice to the same array as another
+   - Slices have a len and a cap. len(array) == cap(slice), but len(slice) is # of elements currently in slice
+
+   slice := a[:] is equivalent to a[0:len(a)]
+
+   - Trying to access an index beyond the capacity of a slice throws a runtime error
+   - "append" appends zero or more values x to a slice s and returns the resulting slice w/ the same type as s. This may refer to a different array.
+   - "copy" copies slice elements from a src to a dst and returns the number of elements copied. numElements = min(len(src), len(dst))
+
+ - [ Maps ]
+
+ 	brothersage := map[string]int{
+ 		"Rami": 24, "Nabil": 19,				// Need trailing comma !
+ 	}
+
+Chapter 3: 
+----------------------
